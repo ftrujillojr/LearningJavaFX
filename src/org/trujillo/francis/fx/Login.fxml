@@ -23,6 +23,7 @@
         </Menu>
       </menus>
     </MenuBar>
+    <Button fx:id="btnExit" layoutX="520.0" layoutY="347.0" mnemonicParsing="false" text="Exit" />
   </children>
   <stylesheets>
     <URL value="@login.css" />
