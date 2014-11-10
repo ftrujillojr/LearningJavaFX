@@ -58,6 +58,7 @@ public class LoginController implements Initializable {
         );
 
         // Or, you can create method that gets an instance of Anonymous EventHandler
+        // Note, that you will still have TWO instances of anonymous EventHandler
         menuFileClose.setOnAction(exitApplication());
         btnExit.setOnAction(exitApplication());
 
