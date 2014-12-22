@@ -47,32 +47,20 @@ public class LoginController implements Initializable {
         assert menuFileClose != null : "fx:id=\"menuFileClose\" was not injected: check your FXML file 'Login.fxml'.";
 
         // You can use Anonymous EventHandler inline
-        chbxDebug.setOnAction(
-                new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent event) {
-                        boolean selected = chbxDebug.isSelected();
-                        System.out.println("CheckBox Action (selected: " + selected + ")");
-                    }
-                }
-        );
-
-        // Or, you can create method that gets an instance of Anonymous EventHandler
-        // Note, that you will still have TWO instances of anonymous EventHandler
-        menuFileClose.setOnAction(exitApplication());
-        btnExit.setOnAction(exitApplication());
+        chbxDebug.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                boolean selected = chbxDebug.isSelected();
+                System.out.println("CheckBox Action (selected: " + selected + ")");
+            }
+        });
 
     }
 
-    
-    private EventHandler<ActionEvent> exitApplication() {
-        return new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Exit Application");
-                System.exit(0);
-            }
-        };
+    @FXML
+    private void exitApplication() {
+        System.out.println("Exit Application");
+        System.exit(0);
     }
 
 }
