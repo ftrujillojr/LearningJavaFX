@@ -21,8 +21,10 @@ import javafx.scene.control.MenuItem;
  *
  * @author ftrujillo
  */
-public class LoginController implements Initializable {
+public class LoginController implements Initializable, ControlledScreen {
 
+    ScreensController myController; 
+    
     @FXML
     private MenuBar menuBarLogin;
     @FXML
@@ -32,6 +34,11 @@ public class LoginController implements Initializable {
     @FXML
     private MenuItem menuFileClose;
 
+    @Override
+    public void setScreenParent(ScreensController screenParent) {
+        this.myController = screenParent; 
+    }
+    
     /**
      *
      * @param url
@@ -58,9 +65,16 @@ public class LoginController implements Initializable {
     }
 
     @FXML
+    private void gotoHomePage(ActionEvent event) {
+        System.out.println("GOTO HOME PAGE!!");
+        myController.setScreen(JavaFXApplicationMain.HOME_SCREEN);  
+    }
+    
+    @FXML
     private void exitApplication() {
         System.out.println("Exit Application");
         System.exit(0);
     }
+
 
 }

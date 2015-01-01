@@ -34,6 +34,7 @@
         <URL value="@login.css" />
       </stylesheets>
     </Label>
+    <Button layoutX="27.0" layoutY="327.0" mnemonicParsing="false" onAction="#gotoHomePage" text="Home" />
   </children>
   <stylesheets>
     <URL value="@login.css" />
