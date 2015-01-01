@@ -17,7 +17,6 @@ import javafx.util.Duration;
 public class ScreensController extends StackPane {
 
     private HashMap<String, Node> screens = new HashMap<>();
-
     public ScreensController() {
 
     }
@@ -62,6 +61,8 @@ public class ScreensController extends StackPane {
 
     public boolean setScreen(final String name) {
 
+        final int FADE_IN_MILLISECONDS = 500;
+        
         if (screens.get(name) != null) { //screen loaded 
             final DoubleProperty opacity = opacityProperty();
 
@@ -70,7 +71,7 @@ public class ScreensController extends StackPane {
                 Timeline fade = new Timeline(
                         new KeyFrame(Duration.ZERO,
                                 new KeyValue(opacity, 1.0)),
-                        new KeyFrame(new Duration(500), new EventHandler() {
+                        new KeyFrame(new Duration(FADE_IN_MILLISECONDS), new EventHandler() {
                             @Override
                             public void handle(Event t) {
                                 //remove displayed screen 
@@ -80,7 +81,7 @@ public class ScreensController extends StackPane {
                                 Timeline fadeIn = new Timeline(
                                         new KeyFrame(Duration.ZERO,
                                                 new KeyValue(opacity, 0.0)),
-                                        new KeyFrame(new Duration(800),
+                                        new KeyFrame(new Duration(100),
                                                 new KeyValue(opacity, 1.0)));
                                 fadeIn.play();
                             }
@@ -93,7 +94,7 @@ public class ScreensController extends StackPane {
                 Timeline fadeIn = new Timeline(
                         new KeyFrame(Duration.ZERO,
                                 new KeyValue(opacity, 0.0)),
-                        new KeyFrame(new Duration(500),
+                        new KeyFrame(new Duration(FADE_IN_MILLISECONDS),
                                 new KeyValue(opacity, 1.0)));
                 fadeIn.play();
             }
