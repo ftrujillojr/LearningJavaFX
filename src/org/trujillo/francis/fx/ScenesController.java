@@ -11,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -54,8 +55,8 @@ public class ScenesController extends StackPane {
         
         // I wanted to pre-parse these values out and store in HashMap in 
         // parallel with name and screen.
-        this.height.put(name, screen.prefHeight(USE_PREF_SIZE));
-        this.width.put(name, screen.prefWidth(USE_PREF_SIZE));
+        this.height.put(name, screen.prefHeight(Region.USE_PREF_SIZE));
+        this.width.put(name, screen.prefWidth(Region.USE_PREF_SIZE));
     }
 
     /**
