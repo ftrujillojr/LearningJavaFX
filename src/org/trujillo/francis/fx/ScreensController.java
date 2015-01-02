@@ -12,18 +12,35 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class ScreensController extends StackPane {
 
     private HashMap<String, Node> screens;
+
+    // I needed these for resizing the stage on each scene transistion.
+    public Stage stage = null;
     private HashMap<String, Double> height;
     private HashMap<String, Double> width;
+    private double xpos;
+    private double ypos;
 
-    public ScreensController() {
-        screens = new HashMap<>();
-        height = new HashMap<>();
-        width = new HashMap<>();
+    public ScreensController(Stage stage) {
+        this.stage = stage;
+        this.screens = new HashMap<>();
+        this.height = new HashMap<>();
+        this.width = new HashMap<>();
+        this.xpos = 0;
+        this.ypos = 0;
+    }
+    public ScreensController(Stage stage, double xpos, double ypos) {
+        this.stage = stage;
+        this.screens = new HashMap<>();
+        this.height = new HashMap<>();
+        this.width = new HashMap<>();
+        this.xpos = xpos;
+        this.ypos = ypos;
     }
 
     /**
@@ -34,6 +51,9 @@ public class ScreensController extends StackPane {
      */
     public void addScreen(String name, Node screen) {
         this.screens.put(name, screen);
+        
+        // I wanted to pre-parse these values out and store in HashMap in 
+        // parallel with name and screen.
         this.height.put(name, screen.prefHeight(USE_PREF_SIZE));
         this.width.put(name, screen.prefWidth(USE_PREF_SIZE));
     }
@@ -84,7 +104,7 @@ public class ScreensController extends StackPane {
                                 getChildren().remove(0);
                                 //add new screen 
                                 Node node = screens.get(name);
-                                resizeStage(name);
+                                resizeStage(name); // This was my addition to the code
                                 getChildren().add(0, node);
 
                                 Timeline fadeIn = new Timeline(
@@ -100,7 +120,7 @@ public class ScreensController extends StackPane {
                 //no one else been displayed, then just show 
                 setOpacity(0.0);
                 Node node = screens.get(name);
-                resizeStage(name);
+                resizeStage(name);    // This was my addition to the code
                 getChildren().add(node);
                 Timeline fadeIn = new Timeline(
                         new KeyFrame(Duration.ZERO,
@@ -119,17 +139,16 @@ public class ScreensController extends StackPane {
     // This method took 2 days to write.  The hard part was getting the PREF HEIGHT/WIDTH at load time.
     // See addScreen()
     public void resizeStage(String name) {
-        // This position the app at  100,200
-        JavaFXApplicationMain.APP_STAGE.setX(100);
-        JavaFXApplicationMain.APP_STAGE.setY(200);
+        // This position the app at  xpos,ypos
+        this.stage.setX(this.xpos);
+        this.stage.setY(this.ypos);
 
-        //JavaFXApplicationMain.APP_STAGE.setResizable(false);
-
+        //this.stage.setResizable(false);
         // The 35 is to take into account the Window title bar height.  TODO: figure out how 
         // to dynamically get this number.
-        JavaFXApplicationMain.APP_STAGE.setHeight(this.height.get(name) + 35);
-        JavaFXApplicationMain.APP_STAGE.setWidth(this.width.get(name));
-        
+        this.stage.setHeight(this.height.get(name) + 35);
+        this.stage.setWidth(this.width.get(name));
+
     }
 
     public boolean unloadScreen(String name) {

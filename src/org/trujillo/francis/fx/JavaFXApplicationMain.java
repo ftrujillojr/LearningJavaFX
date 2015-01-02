@@ -20,12 +20,10 @@ public class JavaFXApplicationMain extends Application {
     public static final String LOGIN_SCREEN_FXML = "Login.fxml";
     public static final String HOME_SCREEN = "Home";
     public static final String HOME_SCREEN_FXML = "Home.fxml";
-    public static Stage APP_STAGE = null;
 
     @Override
     public void start(Stage stage) throws Exception {
-        JavaFXApplicationMain.APP_STAGE = stage;
-        ScreensController mainContainer = new ScreensController();
+        ScreensController mainContainer = new ScreensController(stage);
         mainContainer.loadScreen(
                 JavaFXApplicationMain.LOGIN_SCREEN,
                 JavaFXApplicationMain.LOGIN_SCREEN_FXML
