@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class ScenesController extends StackPane {
@@ -62,12 +63,12 @@ public class ScenesController extends StackPane {
     /**
      * This method loads the fxml file specified by resource, and it gets the
      * top Node for the screen. We can also get the controller associated to
- this screen, which allows us to set the parent for the screen, as all the
- controllers shared the common type ControlledScene.
-
- Finally the screen is added to the screens hash map. As you can see from
- the code, the loaded fxml file, doesn't get added to the scene graph, so
- the loaded screen doesn't get displayed or loaded to the screen.
+     * this screen, which allows us to set the parent for the screen, as all the
+     * controllers shared the common type ControlledScene.
+     *
+     * Finally the screen is added to the screens hash map. As you can see from
+     * the code, the loaded fxml file, doesn't get added to the scene graph, so
+     * the loaded screen doesn't get displayed or loaded to the screen.
      *
      * @param name
      * @param resource
@@ -85,6 +86,11 @@ public class ScenesController extends StackPane {
             System.out.println(e.getMessage());
             return false;
         }
+    }
+    
+    public Node getNode(String name) {
+        Node node = screens.get(name);
+        return(node);
     }
 
     public boolean setScene(final String name) {
@@ -104,9 +110,8 @@ public class ScenesController extends StackPane {
                                 //remove displayed screen 
                                 getChildren().remove(0);
                                 //add new screen 
-                                Node node = screens.get(name);
                                 resizeStage(name); // This was my addition to the code
-                                getChildren().add(0, node);
+                                getChildren().add(0, getNode(name));
 
                                 Timeline fadeIn = new Timeline(
                                         new KeyFrame(Duration.ZERO,
@@ -120,9 +125,8 @@ public class ScenesController extends StackPane {
             } else {
                 //no one else been displayed, then just show 
                 setOpacity(0.0);
-                Node node = screens.get(name);
                 resizeStage(name);    // This was my addition to the code
-                getChildren().add(node);
+                getChildren().add(getNode(name));
                 Timeline fadeIn = new Timeline(
                         new KeyFrame(Duration.ZERO,
                                 new KeyValue(opacity, 0.0)),
@@ -137,17 +141,25 @@ public class ScenesController extends StackPane {
         }
     }
 
-    // This method took 2 days to write.  The hard part was getting the PREF HEIGHT/WIDTH at load time.
-    // See addScreen()
+    /**
+     * This method will set the Stage (Window) at xpos,ypos.
+     * @param name 
+     */
     public void resizeStage(String name) {
         // This position the app at  xpos,ypos
         this.stage.setX(this.xpos);
         this.stage.setY(this.ypos);
 
+        StageStyle stageStyle = this.stage.getStyle();
+        int extra = 35;
+        
+        if(stageStyle == StageStyle.TRANSPARENT) {
+            extra = 0;
+        }
         //this.stage.setResizable(false);
         // The 35 is to take into account the Window title bar height.  TODO: figure out how 
         // to dynamically get this number.
-        this.stage.setHeight(this.height.get(name) + 35);
+        this.stage.setHeight(this.height.get(name) + extra);
         this.stage.setWidth(this.width.get(name));
 
     }

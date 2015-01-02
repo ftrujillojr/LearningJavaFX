@@ -47,6 +47,6 @@
     <Label layoutX="136.0" layoutY="210.0" text="Password" />
   </children>
   <stylesheets>
-    <URL value="@login.css" />
+    <URL value="@css/login.css" />
   </stylesheets>
 </AnchorPane>

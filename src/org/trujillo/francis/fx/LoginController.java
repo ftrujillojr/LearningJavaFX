@@ -73,6 +73,12 @@ public class LoginController implements Initializable, ControlledScene {
         });
 
     }
+    
+    public void clearAll() {
+        textFieldUserName.setText("");
+        textFieldPassword.setText("");
+        chbxDebug.setSelected(false);
+    }
 
     @FXML
     private void gotoHomePage(ActionEvent event) {
