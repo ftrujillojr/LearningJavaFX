@@ -6,6 +6,7 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="376.0" prefWidth="600.0" styleClass="background" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.trujillo.francis.fx.LoginController">
   <children>
@@ -35,6 +36,11 @@
       </stylesheets>
     </Label>
     <Button layoutX="27.0" layoutY="327.0" mnemonicParsing="false" onAction="#gotoHomePage" text="Home" />
+    <Label layoutX="230.0" layoutY="89.0" text="LOGIN">
+      <font>
+        <Font size="48.0" />
+      </font>
+    </Label>
   </children>
   <stylesheets>
     <URL value="@login.css" />
