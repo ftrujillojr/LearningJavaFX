@@ -9,11 +9,11 @@ import javafx.beans.property.DoubleProperty;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Bounds;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Screen;
 import javafx.util.Duration;
 
 public class ScreensController extends StackPane {
@@ -121,6 +121,12 @@ public class ScreensController extends StackPane {
     // This method took 2 days to write.  The hard part was getting the PREF HEIGHT/WIDTH at load time.
     // See addScreen()
     public void resizeStage(String name) {
+        // This position the app at  100,200
+        JavaFXApplicationMain.APP_STAGE.setX(100);
+        JavaFXApplicationMain.APP_STAGE.setY(200);
+        
+        // The 38 is to take into account the Window title bar height.  TODO: figure out how 
+        // to dynamically get this number.
         JavaFXApplicationMain.APP_STAGE.setHeight(this.height.get(name) + 38);
         JavaFXApplicationMain.APP_STAGE.setWidth(this.width.get(name));
     }
