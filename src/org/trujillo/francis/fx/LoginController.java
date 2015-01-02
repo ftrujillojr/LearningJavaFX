@@ -66,13 +66,11 @@ public class LoginController implements Initializable, ControlledScreen {
 
     @FXML
     private void gotoHomePage(ActionEvent event) {
-        System.out.println("GOTO HOME PAGE!!");
         myController.setScreen(JavaFXApplicationMain.HOME_SCREEN);  
     }
     
     @FXML
     private void exitApplication() {
-        System.out.println("Exit Application");
         System.exit(0);
     }
 

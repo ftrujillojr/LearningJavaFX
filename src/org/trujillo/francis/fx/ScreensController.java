@@ -122,11 +122,14 @@ public class ScreensController extends StackPane {
         // This position the app at  100,200
         JavaFXApplicationMain.APP_STAGE.setX(100);
         JavaFXApplicationMain.APP_STAGE.setY(200);
-        
-        // The 38 is to take into account the Window title bar height.  TODO: figure out how 
+
+        //JavaFXApplicationMain.APP_STAGE.setResizable(false);
+
+        // The 35 is to take into account the Window title bar height.  TODO: figure out how 
         // to dynamically get this number.
-        JavaFXApplicationMain.APP_STAGE.setHeight(this.height.get(name) + 38);
+        JavaFXApplicationMain.APP_STAGE.setHeight(this.height.get(name) + 35);
         JavaFXApplicationMain.APP_STAGE.setWidth(this.width.get(name));
+        
     }
 
     public boolean unloadScreen(String name) {
