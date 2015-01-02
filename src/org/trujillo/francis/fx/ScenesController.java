@@ -19,7 +19,7 @@ import javafx.util.Duration;
 
 public class ScenesController extends StackPane {
 
-    private HashMap<String, Node> screens;
+    private HashMap<String, Node> scenes;
 
     // I needed these for resizing the stage on each scene transistion.
     public Stage stage = null;
@@ -30,7 +30,7 @@ public class ScenesController extends StackPane {
 
     public ScenesController(Stage stage) {
         this.stage = stage;
-        this.screens = new HashMap<>();
+        this.scenes = new HashMap<>();
         this.height = new HashMap<>();
         this.width = new HashMap<>();
         this.xpos = 0;
@@ -38,7 +38,7 @@ public class ScenesController extends StackPane {
     }
     public ScenesController(Stage stage, double xpos, double ypos) {
         this.stage = stage;
-        this.screens = new HashMap<>();
+        this.scenes = new HashMap<>();
         this.height = new HashMap<>();
         this.width = new HashMap<>();
         this.xpos = xpos;
@@ -46,18 +46,18 @@ public class ScenesController extends StackPane {
     }
 
     /**
-     * This class has methods for adding, loading and setting the screens
+     * This class has methods for adding, loading and setting the scenes
      *
      * @param name
-     * @param screen
+     * @param scene
      */
-    public void addScreen(String name, Node screen) {
-        this.screens.put(name, screen);
+    private void addScene(String name, Node scene) {
+        this.scenes.put(name, scene);
         
         // I wanted to pre-parse these values out and store in HashMap in 
-        // parallel with name and screen.
-        this.height.put(name, screen.prefHeight(Region.USE_PREF_SIZE));
-        this.width.put(name, screen.prefWidth(Region.USE_PREF_SIZE));
+        // parallel with name and scene.
+        this.height.put(name, scene.prefHeight(Region.USE_PREF_SIZE));
+        this.width.put(name, scene.prefWidth(Region.USE_PREF_SIZE));
     }
 
     /**
@@ -66,21 +66,21 @@ public class ScenesController extends StackPane {
      * this screen, which allows us to set the parent for the screen, as all the
      * controllers shared the common type ControlledScene.
      *
-     * Finally the screen is added to the screens hash map. As you can see from
+     * Finally the screen is added to the scenes hash map. As you can see from
      * the code, the loaded fxml file, doesn't get added to the scene graph, so
-     * the loaded screen doesn't get displayed or loaded to the screen.
+     * the loaded scene doesn't get displayed or loaded to the screen.
      *
      * @param name
      * @param resource
      * @return
      */
-    public boolean loadScreen(String name, String resource) {
+    public boolean loadScene(String name, String resource) {
         try {
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource(resource));
-            Parent loadScreen = (Parent) myLoader.load();
-            ControlledScene myScreenControler = ((ControlledScene) myLoader.getController());
-            myScreenControler.setSceneParent(this);
-            addScreen(name, loadScreen);
+            Parent parentScene = (Parent) myLoader.load();
+            ControlledScene mySceneController = ((ControlledScene) myLoader.getController());
+            mySceneController.setSceneParent(this);
+            addScene(name, parentScene);
             return true;
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -89,14 +89,14 @@ public class ScenesController extends StackPane {
     }
     
     public Node getNode(String name) {
-        Node node = screens.get(name);
+        Node node = scenes.get(name);
         return(node);
     }
 
     public boolean setScene(final String name) {
         final int FADE_IN_MILLISECONDS = 500;
 
-        if (screens.get(name) != null) { //screen loaded 
+        if (scenes.get(name) != null) { //screen loaded 
             final DoubleProperty opacity = opacityProperty();
 
             //Is there is more than one screen 
@@ -145,7 +145,7 @@ public class ScenesController extends StackPane {
      * This method will set the Stage (Window) at xpos,ypos.
      * @param name 
      */
-    public void resizeStage(String name) {
+    private void resizeStage(String name) {
         // This position the app at  xpos,ypos
         this.stage.setX(this.xpos);
         this.stage.setY(this.ypos);
@@ -164,8 +164,8 @@ public class ScenesController extends StackPane {
 
     }
 
-    public boolean unloadScreen(String name) {
-        if (screens.remove(name) == null) {
+    private boolean unloadScene(String name) {
+        if (scenes.remove(name) == null) {
             System.out.println("Screen didn't exist");
             return false;
         } else {

@@ -26,11 +26,11 @@ public class JavaFXApplicationMain extends Application {
     public void start(Stage stage) throws Exception {
         try {
             ScenesController mainContainer = new ScenesController(stage, 100, 200);
-            mainContainer.loadScreen(
+            mainContainer.loadScene(
                     JavaFXApplicationMain.LOGIN_SCENE,
                     JavaFXApplicationMain.LOGIN_SCENE_FXML
             );
-            mainContainer.loadScreen(
+            mainContainer.loadScene(
                     JavaFXApplicationMain.HOME_SCENE,
                     JavaFXApplicationMain.HOME_SCENE_FXML
             );

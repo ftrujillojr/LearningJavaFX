@@ -39,5 +39,6 @@ public class HomeController implements Initializable, ControlledScene {
     @FXML
     private void gotoLogin(ActionEvent event) {
         myController.setScene(JavaFXApplicationMain.LOGIN_SCENE);
+        
     }
 }
