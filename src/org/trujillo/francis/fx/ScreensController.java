@@ -9,16 +9,23 @@ import javafx.beans.property.DoubleProperty;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 public class ScreensController extends StackPane {
 
-    private HashMap<String, Node> screens = new HashMap<>();
-    public ScreensController() {
+    private HashMap<String, Node> screens;
+    private HashMap<String, Double> height;
+    private HashMap<String, Double> width;
 
+    public ScreensController() {
+        screens = new HashMap<>();
+        height = new HashMap<>();
+        width = new HashMap<>();
     }
 
     /**
@@ -29,6 +36,8 @@ public class ScreensController extends StackPane {
      */
     public void addScreen(String name, Node screen) {
         this.screens.put(name, screen);
+        this.height.put(name, screen.prefHeight(USE_PREF_SIZE));
+        this.width.put(name, screen.prefWidth(USE_PREF_SIZE));
     }
 
     /**
@@ -60,9 +69,8 @@ public class ScreensController extends StackPane {
     }
 
     public boolean setScreen(final String name) {
-
         final int FADE_IN_MILLISECONDS = 500;
-        
+
         if (screens.get(name) != null) { //screen loaded 
             final DoubleProperty opacity = opacityProperty();
 
@@ -77,7 +85,10 @@ public class ScreensController extends StackPane {
                                 //remove displayed screen 
                                 getChildren().remove(0);
                                 //add new screen 
-                                getChildren().add(0, screens.get(name));
+                                Node node = screens.get(name);
+                                resizeStage(name);
+                                getChildren().add(0, node);
+
                                 Timeline fadeIn = new Timeline(
                                         new KeyFrame(Duration.ZERO,
                                                 new KeyValue(opacity, 0.0)),
@@ -90,7 +101,9 @@ public class ScreensController extends StackPane {
             } else {
                 //no one else been displayed, then just show 
                 setOpacity(0.0);
-                getChildren().add(screens.get(name));
+                Node node = screens.get(name);
+                resizeStage(name);
+                getChildren().add(node);
                 Timeline fadeIn = new Timeline(
                         new KeyFrame(Duration.ZERO,
                                 new KeyValue(opacity, 0.0)),
@@ -104,14 +117,23 @@ public class ScreensController extends StackPane {
             return false;
         }
     }
-    
-    public boolean unloadScreen(String name) { 
-     if(screens.remove(name) == null) { 
-       System.out.println("Screen didn't exist"); 
-       return false; 
-     } else { 
-       return true; 
-     } 
-   } 
+
+    // This method took 2 days to write.  The hard part was getting the PREF HEIGHT/WIDTH at load time.
+    // See addScreen()
+    public void resizeStage(String name) {
+        JavaFXApplicationMain.APP_STAGE.setHeight(this.height.get(name) + 38);
+        JavaFXApplicationMain.APP_STAGE.setWidth(this.width.get(name));
+    }
+
+    public boolean unloadScreen(String name) {
+        if (screens.remove(name) == null) {
+            System.out.println("Screen didn't exist");
+            return false;
+        } else {
+            height.remove(name);
+            width.remove(name);
+            return true;
+        }
+    }
 
 }
