@@ -46,21 +46,6 @@ public class ScenesController extends StackPane {
     }
 
     /**
-     * This class has methods for adding, loading and setting the scenes
-     *
-     * @param name
-     * @param scene
-     */
-    private void addScene(String name, Node scene) {
-        this.scenes.put(name, scene);
-        
-        // I wanted to pre-parse these values out and store in HashMap in 
-        // parallel with name and scene.
-        this.height.put(name, scene.prefHeight(Region.USE_PREF_SIZE));
-        this.width.put(name, scene.prefWidth(Region.USE_PREF_SIZE));
-    }
-
-    /**
      * This method loads the fxml file specified by resource, and it gets the
      * top Node for the screen. We can also get the controller associated to
      * this screen, which allows us to set the parent for the screen, as all the
@@ -88,11 +73,6 @@ public class ScenesController extends StackPane {
         }
     }
     
-    public Node getNode(String name) {
-        Node node = scenes.get(name);
-        return(node);
-    }
-
     public boolean setScene(final String name) {
         final int FADE_IN_MILLISECONDS = 500;
 
@@ -141,6 +121,24 @@ public class ScenesController extends StackPane {
         }
     }
 
+// =============================================================================    
+    
+    /**
+     * This class has methods for adding, loading and setting the scenes
+     *
+     * @param name
+     * @param scene
+     */
+    private void addScene(String name, Node scene) {
+        this.scenes.put(name, scene);
+        
+        // I wanted to pre-parse these values out and store in HashMap in 
+        // parallel with name and scene.
+        this.height.put(name, scene.prefHeight(Region.USE_PREF_SIZE));
+        this.width.put(name, scene.prefWidth(Region.USE_PREF_SIZE));
+    }
+
+    
     /**
      * This method will set the Stage (Window) at xpos,ypos.
      * @param name 
@@ -173,6 +171,11 @@ public class ScenesController extends StackPane {
             width.remove(name);
             return true;
         }
+    }
+
+    private Node getNode(String name) {
+        Node node = scenes.get(name);
+        return(node);
     }
 
 }
