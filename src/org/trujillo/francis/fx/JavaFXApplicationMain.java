@@ -33,7 +33,7 @@ public class JavaFXApplicationMain extends Application {
                 JavaFXApplicationMain.HOME_SCENE_FXML
         );
 
-        mainContainer.setScreen(JavaFXApplicationMain.LOGIN_SCENE);
+        mainContainer.setScene(JavaFXApplicationMain.LOGIN_SCENE);
         Group root = new Group();
         root.getChildren().addAll(mainContainer);
         Scene scene = new Scene(root);

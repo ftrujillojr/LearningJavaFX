@@ -77,7 +77,7 @@ public class ScenesController extends StackPane {
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource(resource));
             Parent loadScreen = (Parent) myLoader.load();
             ControlledScene myScreenControler = ((ControlledScene) myLoader.getController());
-            myScreenControler.setScreenParent(this);
+            myScreenControler.setSceneParent(this);
             addScreen(name, loadScreen);
             return true;
         } catch (IOException e) {
@@ -86,7 +86,7 @@ public class ScenesController extends StackPane {
         }
     }
 
-    public boolean setScreen(final String name) {
+    public boolean setScene(final String name) {
         final int FADE_IN_MILLISECONDS = 500;
 
         if (screens.get(name) != null) { //screen loaded 

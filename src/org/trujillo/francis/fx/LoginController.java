@@ -35,7 +35,7 @@ public class LoginController implements Initializable, ControlledScene {
     private MenuItem menuFileClose;
 
     @Override
-    public void setScreenParent(ScenesController screenParent) {
+    public void setSceneParent(ScenesController screenParent) {
         this.myController = screenParent; 
     }
     
@@ -66,7 +66,7 @@ public class LoginController implements Initializable, ControlledScene {
 
     @FXML
     private void gotoHomePage(ActionEvent event) {
-        myController.setScreen(JavaFXApplicationMain.HOME_SCENE);  
+        myController.setScene(JavaFXApplicationMain.HOME_SCENE);  
     }
     
     @FXML

@@ -21,7 +21,7 @@ public class HomeController implements Initializable, ControlledScene {
     ScenesController myController; 
 
     @Override
-    public void setScreenParent(ScenesController screenParent) {
+    public void setSceneParent(ScenesController screenParent) {
         this.myController = screenParent; 
     }
     
@@ -38,6 +38,6 @@ public class HomeController implements Initializable, ControlledScene {
 
     @FXML
     private void gotoLogin(ActionEvent event) {
-        myController.setScreen(JavaFXApplicationMain.LOGIN_SCENE);  
+        myController.setScene(JavaFXApplicationMain.LOGIN_SCENE);  
     }
 }
