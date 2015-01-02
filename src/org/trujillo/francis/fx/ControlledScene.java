@@ -1,8 +1,8 @@
 package org.trujillo.francis.fx;
 
-public interface ControlledScreen {
+public interface ControlledScene {
 
     //This method will allow the injection of the Parent ScreenPane 
-    public void setScreenParent(ScreensController screenPage);
+    public void setScreenParent(ScenesController screenPage);
 
 }

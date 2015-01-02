@@ -21,9 +21,9 @@ import javafx.scene.control.MenuItem;
  *
  * @author ftrujillo
  */
-public class LoginController implements Initializable, ControlledScreen {
+public class LoginController implements Initializable, ControlledScene {
 
-    ScreensController myController; 
+    ScenesController myController; 
     
     @FXML
     private MenuBar menuBarLogin;
@@ -35,7 +35,7 @@ public class LoginController implements Initializable, ControlledScreen {
     private MenuItem menuFileClose;
 
     @Override
-    public void setScreenParent(ScreensController screenParent) {
+    public void setScreenParent(ScenesController screenParent) {
         this.myController = screenParent; 
     }
     
@@ -66,7 +66,7 @@ public class LoginController implements Initializable, ControlledScreen {
 
     @FXML
     private void gotoHomePage(ActionEvent event) {
-        myController.setScreen(JavaFXApplicationMain.HOME_SCREEN);  
+        myController.setScreen(JavaFXApplicationMain.HOME_SCENE);  
     }
     
     @FXML

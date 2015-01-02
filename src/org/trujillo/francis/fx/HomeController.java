@@ -16,12 +16,12 @@ import javafx.fxml.Initializable;
  *
  * @author ftrujillo
  */
-public class HomeController implements Initializable, ControlledScreen {
+public class HomeController implements Initializable, ControlledScene {
 
-    ScreensController myController; 
+    ScenesController myController; 
 
     @Override
-    public void setScreenParent(ScreensController screenParent) {
+    public void setScreenParent(ScenesController screenParent) {
         this.myController = screenParent; 
     }
     
@@ -38,6 +38,6 @@ public class HomeController implements Initializable, ControlledScreen {
 
     @FXML
     private void gotoLogin(ActionEvent event) {
-        myController.setScreen(JavaFXApplicationMain.LOGIN_SCREEN);  
+        myController.setScreen(JavaFXApplicationMain.LOGIN_SCENE);  
     }
 }

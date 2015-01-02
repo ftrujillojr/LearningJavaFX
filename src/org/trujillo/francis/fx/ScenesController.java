@@ -15,7 +15,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class ScreensController extends StackPane {
+public class ScenesController extends StackPane {
 
     private HashMap<String, Node> screens;
 
@@ -26,7 +26,7 @@ public class ScreensController extends StackPane {
     private double xpos;
     private double ypos;
 
-    public ScreensController(Stage stage) {
+    public ScenesController(Stage stage) {
         this.stage = stage;
         this.screens = new HashMap<>();
         this.height = new HashMap<>();
@@ -34,7 +34,7 @@ public class ScreensController extends StackPane {
         this.xpos = 0;
         this.ypos = 0;
     }
-    public ScreensController(Stage stage, double xpos, double ypos) {
+    public ScenesController(Stage stage, double xpos, double ypos) {
         this.stage = stage;
         this.screens = new HashMap<>();
         this.height = new HashMap<>();
@@ -61,12 +61,12 @@ public class ScreensController extends StackPane {
     /**
      * This method loads the fxml file specified by resource, and it gets the
      * top Node for the screen. We can also get the controller associated to
-     * this screen, which allows us to set the parent for the screen, as all the
-     * controllers shared the common type ControlledScreen.
-     *
-     * Finally the screen is added to the screens hash map. As you can see from
-     * the code, the loaded fxml file, doesn't get added to the scene graph, so
-     * the loaded screen doesn't get displayed or loaded to the screen.
+ this screen, which allows us to set the parent for the screen, as all the
+ controllers shared the common type ControlledScene.
+
+ Finally the screen is added to the screens hash map. As you can see from
+ the code, the loaded fxml file, doesn't get added to the scene graph, so
+ the loaded screen doesn't get displayed or loaded to the screen.
      *
      * @param name
      * @param resource
@@ -76,7 +76,7 @@ public class ScreensController extends StackPane {
         try {
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource(resource));
             Parent loadScreen = (Parent) myLoader.load();
-            ControlledScreen myScreenControler = ((ControlledScreen) myLoader.getController());
+            ControlledScene myScreenControler = ((ControlledScene) myLoader.getController());
             myScreenControler.setScreenParent(this);
             addScreen(name, loadScreen);
             return true;

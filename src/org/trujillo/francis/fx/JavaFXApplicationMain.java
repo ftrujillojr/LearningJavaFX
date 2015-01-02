@@ -16,24 +16,24 @@ import javafx.stage.Stage;
  */
 public class JavaFXApplicationMain extends Application {
 
-    public static final String LOGIN_SCREEN = "Login";
-    public static final String LOGIN_SCREEN_FXML = "Login.fxml";
-    public static final String HOME_SCREEN = "Home";
-    public static final String HOME_SCREEN_FXML = "Home.fxml";
+    public static final String LOGIN_SCENE = "Login";
+    public static final String LOGIN_SCENE_FXML = "Login.fxml";
+    public static final String HOME_SCENE = "Home";
+    public static final String HOME_SCENE_FXML = "Home.fxml";
 
     @Override
     public void start(Stage stage) throws Exception {
-        ScreensController mainContainer = new ScreensController(stage);
+        ScenesController mainContainer = new ScenesController(stage, 100, 200);
         mainContainer.loadScreen(
-                JavaFXApplicationMain.LOGIN_SCREEN,
-                JavaFXApplicationMain.LOGIN_SCREEN_FXML
+                JavaFXApplicationMain.LOGIN_SCENE,
+                JavaFXApplicationMain.LOGIN_SCENE_FXML
         );
         mainContainer.loadScreen(
-                JavaFXApplicationMain.HOME_SCREEN,
-                JavaFXApplicationMain.HOME_SCREEN_FXML
+                JavaFXApplicationMain.HOME_SCENE,
+                JavaFXApplicationMain.HOME_SCENE_FXML
         );
 
-        mainContainer.setScreen(JavaFXApplicationMain.LOGIN_SCREEN);
+        mainContainer.setScreen(JavaFXApplicationMain.LOGIN_SCENE);
         Group root = new Group();
         root.getChildren().addAll(mainContainer);
         Scene scene = new Scene(root);
