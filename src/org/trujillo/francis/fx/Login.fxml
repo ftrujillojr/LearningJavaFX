@@ -41,6 +41,10 @@
         <Font size="48.0" />
       </font>
     </Label>
+    <TextField fx:id="textFieldUserName" layoutX="201.0" layoutY="166.0" prefWidth="200.0" />
+    <Label layoutX="137.0" layoutY="172.0" text="Username" />
+    <PasswordField fx:id="textFieldPassword" layoutX="201.0" layoutY="207.0" prefWidth="200.0" />
+    <Label layoutX="136.0" layoutY="210.0" text="Password" />
   </children>
   <stylesheets>
     <URL value="@login.css" />

@@ -15,6 +15,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -23,8 +25,8 @@ import javafx.scene.control.MenuItem;
  */
 public class LoginController implements Initializable, ControlledScene {
 
-    ScenesController myController; 
-    
+    ScenesController myController;
+
     @FXML
     private MenuBar menuBarLogin;
     @FXML
@@ -34,11 +36,17 @@ public class LoginController implements Initializable, ControlledScene {
     @FXML
     private MenuItem menuFileClose;
 
+    @FXML
+    private PasswordField textFieldPassword;
+
+    @FXML
+    private TextField textFieldUserName;
+
     @Override
     public void setSceneParent(ScenesController screenParent) {
-        this.myController = screenParent; 
+        this.myController = screenParent;
     }
-    
+
     /**
      *
      * @param url
@@ -52,6 +60,8 @@ public class LoginController implements Initializable, ControlledScene {
         assert btnExit != null : "fx:id=\"btnExit\" was not injected: check your FXML file 'Login.fxml'.";
         assert chbxDebug != null : "fx:id=\"chbxDebug\" was not injected: check your FXML file 'Login.fxml'.";
         assert menuFileClose != null : "fx:id=\"menuFileClose\" was not injected: check your FXML file 'Login.fxml'.";
+        assert textFieldPassword != null : "fx:id=\"textFieldPassword\" was not injected: check your FXML file 'Login.fxml'.";
+        assert textFieldUserName != null : "fx:id=\"textFieldUserName\" was not injected: check your FXML file 'Login.fxml'.";
 
         // You can use Anonymous EventHandler inline
         chbxDebug.setOnAction(new EventHandler<ActionEvent>() {
@@ -66,13 +76,12 @@ public class LoginController implements Initializable, ControlledScene {
 
     @FXML
     private void gotoHomePage(ActionEvent event) {
-        myController.setScene(JavaFXApplicationMain.HOME_SCENE);  
+        myController.setScene(JavaFXApplicationMain.HOME_SCENE);
     }
-    
+
     @FXML
     private void exitApplication() {
         System.exit(0);
     }
-
 
 }
