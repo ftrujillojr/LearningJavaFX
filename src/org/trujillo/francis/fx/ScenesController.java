@@ -121,6 +121,17 @@ public class ScenesController extends StackPane {
         }
     }
 
+    public boolean unloadScene(String name) {
+        if (scenes.remove(name) == null) {
+            System.out.println("Screen didn't exist");
+            return false;
+        } else {
+            height.remove(name);
+            width.remove(name);
+            return true;
+        }
+    }
+
 // =============================================================================    
     
     /**
@@ -160,17 +171,6 @@ public class ScenesController extends StackPane {
         this.stage.setHeight(this.height.get(name) + extra);
         this.stage.setWidth(this.width.get(name));
 
-    }
-
-    private boolean unloadScene(String name) {
-        if (scenes.remove(name) == null) {
-            System.out.println("Screen didn't exist");
-            return false;
-        } else {
-            height.remove(name);
-            width.remove(name);
-            return true;
-        }
     }
 
     private Node getNode(String name) {
