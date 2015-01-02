@@ -20,6 +20,7 @@ import javafx.util.Duration;
 public class ScenesController extends StackPane {
 
     private HashMap<String, Node> scenes;
+    private HashMap<String, FXMLLoader> loaders;
 
     // I needed these for resizing the stage on each scene transistion.
     public Stage stage = null;
@@ -31,6 +32,7 @@ public class ScenesController extends StackPane {
     public ScenesController(Stage stage) {
         this.stage = stage;
         this.scenes = new HashMap<>();
+        this.loaders = new HashMap<>();
         this.height = new HashMap<>();
         this.width = new HashMap<>();
         this.xpos = 0;
@@ -39,6 +41,7 @@ public class ScenesController extends StackPane {
     public ScenesController(Stage stage, double xpos, double ypos) {
         this.stage = stage;
         this.scenes = new HashMap<>();
+        this.loaders = new HashMap<>();
         this.height = new HashMap<>();
         this.width = new HashMap<>();
         this.xpos = xpos;
@@ -66,6 +69,7 @@ public class ScenesController extends StackPane {
             ControlledScene mySceneController = ((ControlledScene) myLoader.getController());
             mySceneController.setSceneParent(this);
             addScene(name, parentScene);
+            addLoader(name, myLoader);
             return true;
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -116,23 +120,25 @@ public class ScenesController extends StackPane {
             }
             return true;
         } else {
-            System.out.println("screen hasn't been loaded!\n");
+            System.out.println("Scene hasn't been loaded! => " + name);
             return false;
         }
     }
 
-    public boolean unloadScene(String name) {
-        if (scenes.remove(name) == null) {
-            System.out.println("Screen didn't exist");
-            return false;
-        } else {
-            height.remove(name);
-            width.remove(name);
-            return true;
-        }
+    public FXMLLoader getFXMLLoader(String name) {
+        return(this.loaders.get(name));
     }
-
 // =============================================================================    
+
+    /**
+     * Save off the loader to enable getting at the Controller later if needed.
+     * 
+     * @param name
+     * @param myLoader 
+     */
+    private void addLoader(String name, FXMLLoader myLoader) {
+        this.loaders.put(name, myLoader);
+    }
     
     /**
      * This class has methods for adding, loading and setting the scenes

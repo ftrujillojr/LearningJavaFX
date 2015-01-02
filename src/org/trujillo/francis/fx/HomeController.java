@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
 /**
@@ -38,7 +39,9 @@ public class HomeController implements Initializable, ControlledScene {
 
     @FXML
     private void gotoLogin(ActionEvent event) {
-        myController.setScene(JavaFXApplicationMain.LOGIN_SCENE);
-        
+        FXMLLoader fxmlLoader = this.myController.getFXMLLoader(JavaFXApplicationMain.LOGIN_SCENE);
+        LoginController loginController = ((LoginController) fxmlLoader.getController());
+        loginController.clearAll();
+        this.myController.setScene(JavaFXApplicationMain.LOGIN_SCENE);
     }
 }

@@ -24,33 +24,33 @@ public class JavaFXApplicationMain extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        ScenesController mainContainer = new ScenesController(stage, 100, 200);
+        mainContainer.loadScene(
+                JavaFXApplicationMain.LOGIN_SCENE,
+                JavaFXApplicationMain.LOGIN_SCENE_FXML
+        );
+        mainContainer.loadScene(
+                JavaFXApplicationMain.HOME_SCENE,
+                JavaFXApplicationMain.HOME_SCENE_FXML
+        );
+
+        mainContainer.setScene(JavaFXApplicationMain.LOGIN_SCENE);
+        Group root = new Group();
+        root.getChildren().addAll(mainContainer);
+        Scene scene = new Scene(root);
+
+        //stage.initStyle(StageStyle.TRANSPARENT);
+        stage.setTitle("My First JavaFX app");
+
         try {
-            ScenesController mainContainer = new ScenesController(stage, 100, 200);
-            mainContainer.loadScene(
-                    JavaFXApplicationMain.LOGIN_SCENE,
-                    JavaFXApplicationMain.LOGIN_SCENE_FXML
-            );
-            mainContainer.loadScene(
-                    JavaFXApplicationMain.HOME_SCENE,
-                    JavaFXApplicationMain.HOME_SCENE_FXML
-            );
-
-            mainContainer.setScene(JavaFXApplicationMain.LOGIN_SCENE);
-            Group root = new Group();
-            root.getChildren().addAll(mainContainer);
-            Scene scene = new Scene(root);
-
-            //stage.initStyle(StageStyle.TRANSPARENT);
-            stage.setTitle("My First JavaFX app");
-
             stage.getIcons().add(new Image(getClass().getResourceAsStream("images/javafx.jpg")));
-
-            stage.setScene(scene);
-            stage.show();
         } catch (NullPointerException e) {
             System.err.println(e.getClass().getName());
             System.err.println(e.getMessage());
         }
+
+        stage.setScene(scene);
+        stage.show();
     }
 
     /**
