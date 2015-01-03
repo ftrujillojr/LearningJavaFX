@@ -8,10 +8,14 @@
  */
 
 .background {
-    -fx-background-color: #cccccc ;
+    -fx-background-color: #cccccc;
 }
 
-.menu-bar {
+#login_error {
+    -fx-background-color: #dddddd;
+    -fx-text-fill:  #f43c23;
+}
+/*.menu-bar {
     -fx-background-color: #cccccc;
 }
 
@@ -33,7 +37,7 @@
 
 .menu-bar:hover {
     -fx-background-color: #cccccc;
-}
+}*/
 
 /*.label {
     -fx-font-size: 11pt;

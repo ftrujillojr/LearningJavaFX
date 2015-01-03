@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 /**
@@ -23,6 +24,8 @@ public class LoginController implements Initializable, ControlledScene {
 
     ScenesController myController;
 
+    @FXML
+    private TextArea login_error;
     @FXML
     private Button btnExit;
     @FXML
@@ -43,14 +46,13 @@ public class LoginController implements Initializable, ControlledScene {
     @FXML
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        assert login_error != null : "fx:id=\"login_error\" was not injected: check your FXML file 'Login.fxml'.";
         assert btnExit != null : "fx:id=\"btnExit\" was not injected: check your FXML file 'Login.fxml'.";
         assert textFieldPassword != null : "fx:id=\"textFieldPassword\" was not injected: check your FXML file 'Login.fxml'.";
         assert textFieldUserName != null : "fx:id=\"textFieldUserName\" was not injected: check your FXML file 'Login.fxml'.";
 
-
     }
-    
+
     public void clearAll() {
         textFieldUserName.setText("");
         textFieldPassword.setText("");
