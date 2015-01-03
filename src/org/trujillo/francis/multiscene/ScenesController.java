@@ -1,6 +1,5 @@
 package org.trujillo.francis.multiscene;
 
-import org.trujillo.francis.multiscene.ControlledScene;
 import java.io.IOException;
 import java.util.HashMap;
 import javafx.animation.KeyFrame;
@@ -39,6 +38,7 @@ public class ScenesController extends StackPane {
         this.xpos = 0;
         this.ypos = 0;
     }
+
     public ScenesController(Stage stage, double xpos, double ypos) {
         this.stage = stage;
         this.scenes = new HashMap<>();
@@ -65,6 +65,16 @@ public class ScenesController extends StackPane {
      */
     public boolean loadScene(String name, String resource) {
         try {
+            java.io.File file = new java.io.File(resource);
+            java.nio.file.Path path = file.toPath();
+//            if (!file.exists()) {
+//                System.out.println("\nUNABLE TO FIND => " + resource);
+//                System.out.println(path.toString());
+//                System.out.println("\n\n");
+//                System.exit(255);
+//            } 
+
+            System.out.println("PATH =>" + path.toAbsolutePath().toString());
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource(resource));
             Parent parentScene = (Parent) myLoader.load();
             ControlledScene mySceneController = ((ControlledScene) myLoader.getController());
@@ -77,7 +87,7 @@ public class ScenesController extends StackPane {
             return false;
         }
     }
-    
+
     public boolean setScene(final String name) {
         final int FADE_IN_MILLISECONDS = 400;
 
@@ -127,20 +137,20 @@ public class ScenesController extends StackPane {
     }
 
     public FXMLLoader getFXMLLoader(String name) {
-        return(this.loaders.get(name));
+        return (this.loaders.get(name));
     }
 // =============================================================================    
 
     /**
      * Save off the loader to enable getting at the Controller later if needed.
-     * 
+     *
      * @param name
-     * @param myLoader 
+     * @param myLoader
      */
     private void addLoader(String name, FXMLLoader myLoader) {
         this.loaders.put(name, myLoader);
     }
-    
+
     /**
      * This class has methods for adding, loading and setting the scenes
      *
@@ -149,17 +159,17 @@ public class ScenesController extends StackPane {
      */
     private void addScene(String name, Node scene) {
         this.scenes.put(name, scene);
-        
+
         // I wanted to pre-parse these values out and store in HashMap in 
         // parallel with name and scene.
         this.height.put(name, scene.prefHeight(Region.USE_PREF_SIZE));
         this.width.put(name, scene.prefWidth(Region.USE_PREF_SIZE));
     }
 
-    
     /**
      * This method will set the Stage (Window) at xpos,ypos.
-     * @param name 
+     *
+     * @param name
      */
     private void resizeStage(String name) {
         // This position the app at  xpos,ypos
@@ -168,8 +178,8 @@ public class ScenesController extends StackPane {
 
         StageStyle stageStyle = this.stage.getStyle();
         int extra = 35;
-        
-        if(stageStyle == StageStyle.TRANSPARENT) {
+
+        if (stageStyle == StageStyle.TRANSPARENT) {
             extra = 0;
         }
         //this.stage.setResizable(false);
@@ -182,7 +192,7 @@ public class ScenesController extends StackPane {
 
     private Node getNode(String name) {
         Node node = scenes.get(name);
-        return(node);
+        return (node);
     }
 
 }
