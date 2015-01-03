@@ -59,6 +59,11 @@ public class LoginController implements Initializable, ControlledScene {
     }
 
     @FXML
+    private void gotoRegisterUser(ActionEvent event) {
+        System.out.println("TODO: RegisterUser");
+    }
+    
+    @FXML
     private void gotoHomePage(ActionEvent event) {
         myController.setScene(JavaFXApplicationMain.HOME_SCENE);
     }

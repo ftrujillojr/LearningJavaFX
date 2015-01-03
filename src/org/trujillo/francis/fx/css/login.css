@@ -15,6 +15,13 @@
     -fx-background-color: #dddddd;
     -fx-text-fill:  #f43c23;
 }
+
+.hyperlink {
+    -fx-text-fill:#34913a;
+}
+.hyperlink:visited {
+    -fx-text-fill:#34913a;
+}
 /*.menu-bar {
     -fx-background-color: #cccccc;
 }

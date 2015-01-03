@@ -8,25 +8,26 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="259.0" prefWidth="328.0000999999975" styleClass="background" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.trujillo.francis.fx.LoginController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="288.0" prefWidth="328.0000999999975" styleClass="background" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.trujillo.francis.fx.LoginController">
   <children>
-    <Label layoutX="129.0" layoutY="0.0" minHeight="51.0" prefHeight="51.0" text="LOGIN">
+    <Label layoutX="122.0" layoutY="0.0" minHeight="51.0" prefHeight="51.0" prefWidth="85.0" text="LOGIN" textAlignment="CENTER">
       <font>
         <Font size="24.0" />
       </font>
     </Label>
-    <TextField fx:id="textFieldUserName" layoutX="91.0" layoutY="65.0" prefWidth="200.0" />
-    <Label layoutX="27.0" layoutY="71.0" text="Username" />
-    <PasswordField fx:id="textFieldPassword" layoutX="91.0" layoutY="106.0" prefWidth="200.0" />
-    <Label layoutX="26.0" layoutY="109.0" text="Password" />
-    <Button layoutX="124.0" layoutY="217.0" mnemonicParsing="false" onAction="#gotoHomePage" text="Submit" />
-    <Button fx:id="btnExit" layoutX="195.0" layoutY="217.0" mnemonicParsing="false" onAction="#exitApplication" text="Exit">
+    <TextField fx:id="textFieldUserName" layoutX="91.0" layoutY="87.0" prefWidth="200.0" />
+    <Label layoutX="25.0" layoutY="90.0" text="Username" />
+    <PasswordField fx:id="textFieldPassword" layoutX="91.0" layoutY="122.0" prefWidth="200.0" />
+    <Label layoutX="26.0" layoutY="122.0" text="Password" />
+    <Button layoutX="124.0" layoutY="253.0" mnemonicParsing="false" onAction="#gotoHomePage" text="Submit" />
+    <Button fx:id="btnExit" layoutX="191.0" layoutY="253.0" mnemonicParsing="false" onAction="#exitApplication" text="Exit">
       <stylesheets>
         <URL value="@login.css" />
       </stylesheets>
     </Button>
-    <TextArea fx:id="login_error" editable="false" focusTraversable="false" layoutX="92.0" layoutY="142.0" prefHeight="61.0" prefWidth="200.0" wrapText="true" />
-    <Label layoutX="27.0" layoutY="142.0" text="Messages" />
+    <TextArea fx:id="login_error" editable="false" focusTraversable="false" layoutX="91.0" layoutY="158.0" prefHeight="87.0" prefWidth="200.0" wrapText="true" />
+    <Label layoutX="25.0" layoutY="158.0" text="Messages" />
+    <Hyperlink focusTraversable="false" layoutX="91.0" layoutY="51.0" onAction="#gotoRegisterUser" prefWidth="153.0" text="Not registered? Click me." />
   </children>
   <stylesheets>
     <URL value="@css/login.css" />

@@ -24,7 +24,7 @@ public class JavaFXApplicationMain extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        ScenesController mainContainer = new ScenesController(stage, 100, 200);
+        ScenesController mainContainer = new ScenesController(stage, 1000, 200);
         mainContainer.loadScene(
                 JavaFXApplicationMain.LOGIN_SCENE,
                 JavaFXApplicationMain.LOGIN_SCENE_FXML
