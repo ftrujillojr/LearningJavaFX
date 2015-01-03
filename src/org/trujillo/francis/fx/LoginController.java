@@ -5,6 +5,8 @@
  */
 package org.trujillo.francis.fx;
 
+import org.trujillo.francis.multiscene.ScenesController;
+import org.trujillo.francis.multiscene.ControlledScene;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
