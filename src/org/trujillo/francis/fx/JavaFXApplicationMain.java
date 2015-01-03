@@ -18,9 +18,9 @@ import javafx.stage.Stage;
 public class JavaFXApplicationMain extends Application {
 
     public static final String LOGIN_SCENE = "Login";
-    public static final String LOGIN_SCENE_FXML = "src/org/trujillo/francis/fx/Login.fxml";
+    public static final String LOGIN_SCENE_FXML = "Login.fxml";
     public static final String HOME_SCENE = "Home";
-    public static final String HOME_SCENE_FXML = "src/org/trujillo/francis/fx/Home.fxml";
+    public static final String HOME_SCENE_FXML = "Home.fxml";
 
     @Override
     public void start(Stage stage) throws Exception {
