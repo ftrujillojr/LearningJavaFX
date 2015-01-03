@@ -78,7 +78,7 @@ public class ScenesController extends StackPane {
     }
     
     public boolean setScene(final String name) {
-        final int FADE_IN_MILLISECONDS = 500;
+        final int FADE_IN_MILLISECONDS = 400;
 
         if (scenes.get(name) != null) { //screen loaded 
             final DoubleProperty opacity = opacityProperty();

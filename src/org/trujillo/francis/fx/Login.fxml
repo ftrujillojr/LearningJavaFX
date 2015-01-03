@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="288.0" prefWidth="328.0000999999975" styleClass="background" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.trujillo.francis.fx.LoginController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="288.0" prefWidth="328.0000999999975" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.trujillo.francis.fx.LoginController">
   <children>
-    <Label layoutX="122.0" layoutY="0.0" minHeight="51.0" prefHeight="51.0" prefWidth="85.0" text="LOGIN" textAlignment="CENTER">
+    <Label fx:id="lblLogin" layoutX="122.0" layoutY="0.0" minHeight="51.0" prefHeight="51.0" prefWidth="85.0" text="LOGIN" textAlignment="CENTER">
       <font>
         <Font size="24.0" />
       </font>

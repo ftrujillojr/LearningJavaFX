@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
@@ -24,6 +25,8 @@ public class LoginController implements Initializable, ControlledScene {
 
     ScenesController myController;
 
+    @FXML
+    private Label lblLogin;
     @FXML
     private TextArea login_error;
     @FXML
@@ -46,6 +49,7 @@ public class LoginController implements Initializable, ControlledScene {
     @FXML
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        assert lblLogin != null : "fx:id=\"lblLogin\" was not injected: check your FXML file 'Login.fxml'.";
         assert login_error != null : "fx:id=\"login_error\" was not injected: check your FXML file 'Login.fxml'.";
         assert btnExit != null : "fx:id=\"btnExit\" was not injected: check your FXML file 'Login.fxml'.";
         assert textFieldPassword != null : "fx:id=\"textFieldPassword\" was not injected: check your FXML file 'Login.fxml'.";
@@ -62,7 +66,7 @@ public class LoginController implements Initializable, ControlledScene {
     private void gotoRegisterUser(ActionEvent event) {
         System.out.println("TODO: RegisterUser");
     }
-    
+
     @FXML
     private void gotoHomePage(ActionEvent event) {
         myController.setScene(JavaFXApplicationMain.HOME_SCENE);
