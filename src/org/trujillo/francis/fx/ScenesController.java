@@ -1,5 +1,6 @@
-package org.trujillo.francis.multiscene;
+package org.trujillo.francis.fx;
 
+import org.trujillo.francis.fx.ControlledScene;
 import java.io.IOException;
 import java.util.HashMap;
 import javafx.animation.KeyFrame;

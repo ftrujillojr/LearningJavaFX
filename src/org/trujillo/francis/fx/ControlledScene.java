@@ -1,4 +1,4 @@
-package org.trujillo.francis.multiscene;
+package org.trujillo.francis.fx;
 
 public interface ControlledScene {
 
