@@ -18,6 +18,6 @@
     <Button layoutX="128.0" layoutY="71.0" mnemonicParsing="false" onAction="#gotoLogin" text="Goto LOGIN" />
   </children>
   <stylesheets>
-    <URL value="@css/home.css" />
+    <URL value="@home.css" />
   </stylesheets>
 </AnchorPane>
