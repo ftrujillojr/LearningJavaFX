@@ -1,6 +1,8 @@
 package org.trujillo.francis.fx;
 
+import java.net.URL;
 import java.util.HashMap;
+import java.util.Iterator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -67,6 +69,10 @@ public class ScenesController extends StackPane {
     public boolean loadScene(String name, String resource) throws ScenesControllerException {
         try {
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource(resource));
+            // The resource is really a mapped URL location.  I left this in for your inspection.
+            URL url = myLoader.getLocation();
+            System.out.println("URL => " + url.toString());
+            // The load method will throw an Exception if it can not find the resource.
             Parent parentScene = (Parent) myLoader.load();
             ControlledScene mySceneController = ((ControlledScene) myLoader.getController());
             mySceneController.setSceneParent(this);
