@@ -1,0 +1,16 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.large_label {
+    -fx-font-size: 24px;
+}
+
+.error_label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #f90420;
+}
+
+.mainFxmlClass {
+    -fx-background-color: #cccccc;
+}

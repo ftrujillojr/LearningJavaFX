@@ -23,8 +23,8 @@ public class JavaFXApplicationMain extends Application {
     public static final String LOGIN_SCENE_FXML = "/org/trujillo/francis/fx/Login.fxml";
     public static final String HOME_SCENE = "Home";
     public static final String HOME_SCENE_FXML = "/org/trujillo/francis/fx/Home.fxml";
-    public static final String TEST_SCENE = "test";
-    public static final String TEST_SCENE_FXML = "/org/trujillo/francis/other/Test.fxml";
+    public static final String REGISTER_SCENE = "Register";
+    public static final String REGISTER_SCENE_FXML = "/org/trujillo/francis/other/Register.fxml";
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -39,8 +39,8 @@ public class JavaFXApplicationMain extends Application {
                     JavaFXApplicationMain.HOME_SCENE_FXML
             );
             mainContainer.loadScene(
-                    JavaFXApplicationMain.TEST_SCENE,
-                    JavaFXApplicationMain.TEST_SCENE_FXML
+                    JavaFXApplicationMain.REGISTER_SCENE,
+                    JavaFXApplicationMain.REGISTER_SCENE_FXML
             );
             mainContainer.setScene(JavaFXApplicationMain.LOGIN_SCENE);
             Group root = new Group();

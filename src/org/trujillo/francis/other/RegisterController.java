@@ -17,7 +17,7 @@ import org.trujillo.francis.fx.ScenesController;
  *
  * @author ftrujillo
  */
-public class TestController implements Initializable, ControlledScene {
+public class RegisterController implements Initializable, ControlledScene {
 
     ScenesController myController; 
 
