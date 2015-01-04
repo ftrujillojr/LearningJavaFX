@@ -69,14 +69,27 @@ public class ScenesController extends StackPane {
     public boolean loadScene(String name, String resource) throws ScenesControllerException {
         try {
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource(resource));
-            // The resource is really a mapped URL location.  I left this in for your inspection.
+            // The resource is really a mapped URL location.  
+            // I left in the URL and print statement for your inspection.
+            //
+            // Notice the /org/trujillo/francis/fx and the /org/trujillo/francis/other packages.
+            // IMPORTANT: the resouce you pass in SHOULD have a qualified package name starting with /
+            //
+            // URL => jar:file:/C:/Users/ftrujillo/Documents/NetBeansProjects/LearningJavaFx/dist/run1513628653/LearningJavaFx.jar!/org/trujillo/francis/fx/Login.fxml
+            // URL => jar:file:/C:/Users/ftrujillo/Documents/NetBeansProjects/LearningJavaFx/dist/run1513628653/LearningJavaFx.jar!/org/trujillo/francis/fx/Home.fxml
+            // URL => jar:file:/C:/Users/ftrujillo/Documents/NetBeansProjects/LearningJavaFx/dist/run1513628653/LearningJavaFx.jar!/org/trujillo/francis/other/Test.fxml            
+            //
             URL url = myLoader.getLocation();
             System.out.println("URL => " + url.toString());
-            // The load method will throw an Exception if it can not find the resource.
+            // The load method will throw an Runtime Exception if it can not find the resource.
+            // IOExeption does not capture, so I broadened it to Exception.
             Parent parentScene = (Parent) myLoader.load();
             ControlledScene mySceneController = ((ControlledScene) myLoader.getController());
+            // Who's in charge?? => ScenesController extends StackPane
             mySceneController.setSceneParent(this);
+            // Save this for loading the scene later => setScene(String name)
             addScene(name, parentScene);
+            // Save this just in case you need to derive an instance to a CONTROLLER for post setScene(String name)
             addLoader(name, myLoader);
             return true;
         } catch (Exception ex) {
