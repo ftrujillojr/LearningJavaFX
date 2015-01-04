@@ -7,9 +7,6 @@
  * http://docs.oracle.com/javafx/2/api/
  */
 
-.background {
-}
-
 #login_error {
     -fx-background-color: #dddddd;
     -fx-text-fill:  #f43c23;
@@ -21,43 +18,6 @@
 .hyperlink:visited {
     -fx-text-fill:#34913a;
 }
-/*.menu-bar {
-    -fx-background-color: #cccccc;
-}
-
-.menu {
-    -fx-background-color: #cccccc;
-}
-
-.menu-item {
-    -fx-background-color: #cccccc;
-}
-
-.menu-button:hover {
-    -fx-background-color: gold;
-}
-
-.menu:hover {
-    -fx-background-color: cyan;
-}
-
-.menu-bar:hover {
-    -fx-background-color: #cccccc;
-}*/
-
-/*.label {
-    -fx-font-size: 11pt;
-    -fx-font-family: "Segoe UI Semibold";
-    -fx-text-fill: black;
-    -fx-opacity: 0.6;
-}
-
-.label-bright {
-    -fx-font-size: 11pt;
-    -fx-font-family: "Segoe UI Semibold";
-    -fx-text-fill: black;
-    -fx-opacity: 1;
-}*/
 
 .mainFxmlClass {
     -fx-background-color: #cccccc;
