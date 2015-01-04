@@ -1,7 +1,5 @@
 package org.trujillo.francis.fx;
 
-import org.trujillo.francis.fx.ControlledScene;
-import java.io.IOException;
 import java.util.HashMap;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -63,19 +61,11 @@ public class ScenesController extends StackPane {
      * @param name
      * @param resource
      * @return
+     * @throws org.trujillo.francis.fx.ScenesControllerException
      */
-    public boolean loadScene(String name, String resource) {
+    @SuppressWarnings({"BroadCatchBlock", "TooBroadCatch"})
+    public boolean loadScene(String name, String resource) throws ScenesControllerException {
         try {
-            java.io.File file = new java.io.File(resource);
-            java.nio.file.Path path = file.toPath();
-//            if (!file.exists()) {
-//                System.out.println("\nUNABLE TO FIND => " + resource);
-//                System.out.println(path.toString());
-//                System.out.println("\n\n");
-//                System.exit(255);
-//            } 
-
-            System.out.println("PATH =>" + path.toAbsolutePath().toString());
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource(resource));
             Parent parentScene = (Parent) myLoader.load();
             ControlledScene mySceneController = ((ControlledScene) myLoader.getController());
@@ -83,9 +73,11 @@ public class ScenesController extends StackPane {
             addScene(name, parentScene);
             addLoader(name, myLoader);
             return true;
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-            return false;
+        } catch (Exception ex) {
+          String msg = "\nERROR: Could NOT find FXML resource to load => " + resource + "\n";  
+          msg += ex.getMessage();
+          msg += "\nCLASS => " + ex.getClass().toString();
+          throw new ScenesControllerException(msg);
         }
     }
 
