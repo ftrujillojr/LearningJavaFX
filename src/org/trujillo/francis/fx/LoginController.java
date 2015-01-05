@@ -28,7 +28,7 @@ public class LoginController implements Initializable, ControlledScene {
     @FXML
     private Label lblLogin;
     @FXML
-    private TextArea login_error;
+    private TextArea textAreaMessages;
     @FXML
     private Button btnExit;
     @FXML
@@ -50,7 +50,7 @@ public class LoginController implements Initializable, ControlledScene {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         assert lblLogin != null : "fx:id=\"lblLogin\" was not injected: check your FXML file 'Login.fxml'.";
-        assert login_error != null : "fx:id=\"login_error\" was not injected: check your FXML file 'Login.fxml'.";
+        assert textAreaMessages != null : "fx:id=\"textAreaMessages\" was not injected: check your FXML file 'Login.fxml'.";
         assert btnExit != null : "fx:id=\"btnExit\" was not injected: check your FXML file 'Login.fxml'.";
         assert textFieldPassword != null : "fx:id=\"textFieldPassword\" was not injected: check your FXML file 'Login.fxml'.";
         assert textFieldUserName != null : "fx:id=\"textFieldUserName\" was not injected: check your FXML file 'Login.fxml'.";
@@ -60,8 +60,13 @@ public class LoginController implements Initializable, ControlledScene {
     public void clearAll() {
         textFieldUserName.setText("");
         textFieldPassword.setText("");
+        textAreaMessages.setText("");
     }
-
+    
+    public void setTextAreaMessages(String msg) {
+        textAreaMessages.setText(msg);
+    }
+    
     @FXML
     private void gotoRegisterUser(ActionEvent event) {
         myController.setScene(JavaFXApplicationMain.REGISTER_SCENE);

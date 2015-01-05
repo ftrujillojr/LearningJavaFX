@@ -25,7 +25,7 @@
         <URL value="@login.css" />
       </stylesheets>
     </Button>
-    <TextArea fx:id="login_error" editable="false" focusTraversable="false" layoutX="91.0" layoutY="158.0" prefHeight="87.0" prefWidth="200.0" wrapText="true" />
+    <TextArea id="login_error" fx:id="textAreaMessages" editable="false" focusTraversable="false" layoutX="91.0" layoutY="158.0" prefHeight="87.0" prefWidth="200.0" wrapText="true" />
     <Label layoutX="25.0" layoutY="158.0" text="Messages" />
     <Hyperlink focusTraversable="false" layoutX="91.0" layoutY="51.0" onAction="#gotoRegisterUser" prefWidth="153.0" text="Not registered? Click me." />
   </children>
