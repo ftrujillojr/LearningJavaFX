@@ -189,7 +189,7 @@ public class ScenesController extends StackPane {
         this.stage.setY(this.ypos);
 
         StageStyle stageStyle = this.stage.getStyle();
-        int extra = 35;
+        int extra = 45;
 
         if (stageStyle == StageStyle.TRANSPARENT) {
             extra = 0;
