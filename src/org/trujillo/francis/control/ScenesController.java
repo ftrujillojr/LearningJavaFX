@@ -62,7 +62,7 @@ public class ScenesController extends StackPane {
      * @param name
      * @param resource
      * @return
-     * @throws org.trujillo.francis.fx.ScenesControllerException
+     * @throws org.trujillo.francis.control.ScenesControllerException
      */
     @SuppressWarnings({"BroadCatchBlock", "TooBroadCatch"})
     public boolean loadScene(String name, String resource) throws ScenesControllerException {
