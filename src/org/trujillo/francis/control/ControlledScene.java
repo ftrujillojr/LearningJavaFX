@@ -1,4 +1,4 @@
-package org.trujillo.francis.fx;
+package org.trujillo.francis.control;
 
 public interface ControlledScene {
 

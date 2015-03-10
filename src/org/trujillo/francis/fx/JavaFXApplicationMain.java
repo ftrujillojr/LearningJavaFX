@@ -5,6 +5,8 @@
  */
 package org.trujillo.francis.fx;
 
+import org.trujillo.francis.control.ScenesControllerException;
+import org.trujillo.francis.control.ScenesController;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
