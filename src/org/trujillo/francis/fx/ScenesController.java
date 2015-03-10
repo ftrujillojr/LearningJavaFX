@@ -2,7 +2,6 @@ package org.trujillo.francis.fx;
 
 import java.net.URL;
 import java.util.HashMap;
-import java.util.Iterator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
