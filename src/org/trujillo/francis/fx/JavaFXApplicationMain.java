@@ -19,8 +19,6 @@ import javafx.stage.Stage;
  */
 public class JavaFXApplicationMain extends Application {
 
-    // You do NOT need to fully qualify the FXML string with the package if in
-    // the SAME package as this file.
     public static final String LOGIN_SCENE = "Login";
     public static final String LOGIN_SCENE_FXML = "/org/trujillo/francis/fx/Login.fxml";
     public static final String HOME_SCENE = "Home";

@@ -1,6 +1,5 @@
 package org.trujillo.francis.control;
 
-import org.trujillo.francis.control.ControlledScene;
 import java.net.URL;
 import java.util.HashMap;
 import javafx.animation.KeyFrame;
