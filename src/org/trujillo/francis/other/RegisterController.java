@@ -13,8 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.trujillo.francis.fx.ControlledScene;
-import org.trujillo.francis.fx.ScenesController;
+import org.trujillo.francis.control.ControlledScene;
+import org.trujillo.francis.control.ScenesController;
 import org.trujillo.francis.fx.JavaFXApplicationMain;
 
 /**

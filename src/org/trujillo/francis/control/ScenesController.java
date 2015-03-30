@@ -1,8 +1,7 @@
-package org.trujillo.francis.fx;
+package org.trujillo.francis.control;
 
 import java.net.URL;
 import java.util.HashMap;
-import java.util.Iterator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -63,7 +62,7 @@ public class ScenesController extends StackPane {
      * @param name
      * @param resource
      * @return
-     * @throws org.trujillo.francis.fx.ScenesControllerException
+     * @throws org.trujillo.francis.control.ScenesControllerException
      */
     @SuppressWarnings({"BroadCatchBlock", "TooBroadCatch"})
     public boolean loadScene(String name, String resource) throws ScenesControllerException {
