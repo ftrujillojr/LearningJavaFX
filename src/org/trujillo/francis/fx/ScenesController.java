@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
+@SuppressWarnings("FieldMayBeFinal")
 public class ScenesController extends StackPane {
 
     private HashMap<String, Node> scenes;
