@@ -6,8 +6,8 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
-import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -111,9 +111,9 @@ public class ScenesController extends StackPane {
                 Timeline fade = new Timeline(
                         new KeyFrame(Duration.ZERO,
                                 new KeyValue(opacity, 1.0)),
-                        new KeyFrame(new Duration(FADE_IN_MILLISECONDS), new EventHandler() {
+                        new KeyFrame(new Duration(FADE_IN_MILLISECONDS), new EventHandler<ActionEvent>() {
                             @Override
-                            public void handle(Event t) {
+                            public void handle(ActionEvent t) {
                                 //remove displayed screen 
                                 getChildren().remove(0);
                                 //add new screen 
