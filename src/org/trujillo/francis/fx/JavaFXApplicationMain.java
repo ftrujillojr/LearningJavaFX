@@ -12,6 +12,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -48,6 +49,8 @@ public class JavaFXApplicationMain extends Application {
             Scene scene = new Scene(root);
 
             //stage.initStyle(StageStyle.TRANSPARENT);
+            stage.initStyle(StageStyle.DECORATED);
+            
             stage.setTitle("My First JavaFX app");
 
             try {
