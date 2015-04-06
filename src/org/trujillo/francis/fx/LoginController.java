@@ -1,5 +1,7 @@
 package org.trujillo.francis.fx;
 
+import org.trujillo.francis.control.ScenesController;
+import org.trujillo.francis.control.ControlledScene;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
