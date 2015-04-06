@@ -174,8 +174,12 @@ public class ScenesController extends StackPane {
 
         // I wanted to pre-parse these values out and store in HashMap in 
         // parallel with name and scene.
-        this.height.put(name, scene.prefHeight(Region.USE_PREF_SIZE));
-        this.width.put(name, scene.prefWidth(Region.USE_PREF_SIZE));
+        double l_height = scene.prefHeight(Region.USE_PREF_SIZE);
+        double l_width = scene.prefWidth(Region.USE_PREF_SIZE);
+        System.err.println("HEIGHT => " + l_height);
+        System.err.println("WIDTH => " + l_width);
+        this.height.put(name, l_height);
+        this.width.put(name, l_width);
     }
 
     /**

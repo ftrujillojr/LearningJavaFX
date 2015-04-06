@@ -11,7 +11,7 @@
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="299.0" prefWidth="471.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.trujillo.francis.fx.LoginController">
   <children>
       <Group layoutX="538.0" layoutY="118.0" />
-      <GridPane layoutX="30.0" layoutY="28.0" prefHeight="235.0" prefWidth="413.0">
+      <GridPane alignment="CENTER" layoutX="30.0" layoutY="28.0" prefHeight="235.0" prefWidth="413.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="57.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="265.0" minWidth="10.0" prefWidth="265.0" />
