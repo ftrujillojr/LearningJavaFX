@@ -191,6 +191,8 @@ public class ScenesController extends StackPane {
 
         StageStyle stageStyle = this.stage.getStyle();
         int extra = 30;
+        
+        System.err.println("stage style => " + stageStyle.toString());
 
         if (stageStyle == StageStyle.TRANSPARENT) {
             extra = 0;
